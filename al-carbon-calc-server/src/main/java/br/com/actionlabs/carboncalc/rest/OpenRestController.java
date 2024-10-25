@@ -1,6 +1,8 @@
 package br.com.actionlabs.carboncalc.rest;
 
 import br.com.actionlabs.carboncalc.dto.*;
+import br.com.actionlabs.carboncalc.service.UserEmissionFactorService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class OpenRestController {
 
+  private final UserEmissionFactorService userEmissionFactorService;
+
   @PostMapping("start-calc")
   public ResponseEntity<StartCalcResponseDTO> startCalculation(
-      @RequestBody StartCalcRequestDTO request) {
-    throw new RuntimeException("Not implemented");
+      @Valid @RequestBody StartCalcRequestDTO request) {
+    return ResponseEntity.ok(this.userEmissionFactorService.create(request));
   }
 
   @PutMapping("info")
@@ -28,4 +32,5 @@ public class OpenRestController {
   public ResponseEntity<CarbonCalculationResultDTO> getResult(@PathVariable String id) {
     throw new RuntimeException("Not implemented");
   }
+
 }
