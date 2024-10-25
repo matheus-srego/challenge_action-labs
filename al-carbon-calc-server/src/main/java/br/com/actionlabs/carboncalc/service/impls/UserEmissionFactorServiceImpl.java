@@ -13,13 +13,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserEmissionFactorServiceImpl implements UserEmissionFactorService {
 
+    private final UserMapper userMapper;
+
     private final UserEmissionFactorRepository userEmissionFactorRepository;
 
     public StartCalcResponseDTO create(StartCalcRequestDTO startCalcRequestDTO) {
-        final UserEmissionFactor user = UserMapper.startCalcRequestDTOToUser(startCalcRequestDTO);
+        final UserEmissionFactor user = userMapper.toModel(startCalcRequestDTO);
         final UserEmissionFactor savedUser = this.userEmissionFactorRepository.save(user);
 
-        return UserMapper.userToStartCalcResponseDTO(savedUser);
+        return userMapper.toResponseDTO(savedUser);
     }
 
 }
