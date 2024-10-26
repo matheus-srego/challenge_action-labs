@@ -1,6 +1,6 @@
 package br.com.actionlabs.carboncalc.service.impls;
 
-import br.com.actionlabs.carboncalc.dto.UpdateCalcInfoRequestDTO;
+import br.com.actionlabs.carboncalc.dto.EnergyDTO;
 import br.com.actionlabs.carboncalc.mapper.EnergyEmissionFactorMapper;
 import br.com.actionlabs.carboncalc.model.EnergyEmissionFactor;
 import br.com.actionlabs.carboncalc.repository.EnergyEmissionFactorRepository;
@@ -16,9 +16,16 @@ public class EnergyEmissionFactorServiceImpl implements EnergyEmissionFactorServ
 
     private final EnergyEmissionFactorMapper energyEmissionFactorMapper;
 
-    public void save(UpdateCalcInfoRequestDTO updateCalcInfoRequestDTO) {
-        final EnergyEmissionFactor energyEmissionFactor = energyEmissionFactorMapper.toModel(updateCalcInfoRequestDTO);
+    @Override
+    public void save(EnergyDTO energyDTO) {
+        final EnergyEmissionFactor energyEmissionFactor = energyEmissionFactorMapper.toModel(energyDTO);
         energyEmissionFactorRepository.save(energyEmissionFactor);
+    }
+
+    @Override
+    public double calculateEmissionFactor(EnergyDTO energyDTO) {
+        EnergyEmissionFactor energyEmissionFactor = energyEmissionFactorRepository.findByUf(energyDTO.getUf());
+        return energyDTO.getFactor() * energyEmissionFactor.getFactor();
     }
 
 }

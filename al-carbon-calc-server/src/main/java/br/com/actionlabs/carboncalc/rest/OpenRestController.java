@@ -1,6 +1,7 @@
 package br.com.actionlabs.carboncalc.rest;
 
 import br.com.actionlabs.carboncalc.dto.*;
+import br.com.actionlabs.carboncalc.service.CarbonCalculationProcessManager;
 import br.com.actionlabs.carboncalc.service.UserEmissionFactorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class OpenRestController {
 
+  private final CarbonCalculationProcessManager processManager;
+
   private final UserEmissionFactorService userEmissionFactorService;
 
   @PostMapping("start-calc")
@@ -25,7 +28,7 @@ public class OpenRestController {
   @PutMapping("info")
   public ResponseEntity<UpdateCalcInfoResponseDTO> updateInfo(
       @RequestBody UpdateCalcInfoRequestDTO request) {
-    throw new RuntimeException("Not implemented");
+    return ResponseEntity.ok(this.processManager.saveCarbonInfo(request));
   }
 
   @GetMapping("result/{id}")

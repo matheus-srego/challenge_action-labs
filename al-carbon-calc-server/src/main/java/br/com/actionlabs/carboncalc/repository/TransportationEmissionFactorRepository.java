@@ -6,5 +6,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TransportationEmissionFactorRepository
-    extends MongoRepository<TransportationEmissionFactor, TransportationType> {}
+public interface TransportationEmissionFactorRepository extends MongoRepository<TransportationEmissionFactor, TransportationType> {
+
+    TransportationEmissionFactor findByTransportationType(TransportationType transportationType);
+
+}

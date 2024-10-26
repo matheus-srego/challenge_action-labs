@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EnergyEmissionFactorRepository extends MongoRepository<EnergyEmissionFactor, String> {
 
+    EnergyEmissionFactor findByUf(String uf);
+
 }
