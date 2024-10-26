@@ -8,6 +8,4 @@ public interface TransportationEmissionFactorService {
 
     void save(List<TransportationDTO> transportationDTO);
 
-    double calculateEmissionFactor(List<TransportationDTO> transportationDTO);
-
 }

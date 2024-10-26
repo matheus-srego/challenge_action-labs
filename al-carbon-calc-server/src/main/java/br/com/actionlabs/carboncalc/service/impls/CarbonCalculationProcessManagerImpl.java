@@ -3,7 +3,6 @@ package br.com.actionlabs.carboncalc.service.impls;
 import br.com.actionlabs.carboncalc.dto.*;
 import br.com.actionlabs.carboncalc.mapper.EnergyEmissionFactorMapper;
 import br.com.actionlabs.carboncalc.mapper.SolidWasteEmissionFactorMapper;
-import br.com.actionlabs.carboncalc.model.EnergyEmissionFactor;
 import br.com.actionlabs.carboncalc.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

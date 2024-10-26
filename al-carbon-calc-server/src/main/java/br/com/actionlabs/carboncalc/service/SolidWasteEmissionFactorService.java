@@ -6,6 +6,4 @@ public interface SolidWasteEmissionFactorService {
 
     void save(SolidWasteDTO solidWasteDTO);
 
-    double calculateEmissionFactor(SolidWasteDTO solidWasteDTO);
-
 }

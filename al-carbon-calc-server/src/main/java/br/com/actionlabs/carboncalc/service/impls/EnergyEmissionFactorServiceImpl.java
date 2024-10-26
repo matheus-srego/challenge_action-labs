@@ -22,10 +22,4 @@ public class EnergyEmissionFactorServiceImpl implements EnergyEmissionFactorServ
         energyEmissionFactorRepository.save(energyEmissionFactor);
     }
 
-    @Override
-    public double calculateEmissionFactor(EnergyDTO energyDTO) {
-        EnergyEmissionFactor energyEmissionFactor = energyEmissionFactorRepository.findByUf(energyDTO.getUf());
-        return energyDTO.getFactor() * energyEmissionFactor.getFactor();
-    }
-
 }

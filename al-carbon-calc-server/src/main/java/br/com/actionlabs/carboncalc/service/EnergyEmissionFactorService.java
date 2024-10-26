@@ -6,6 +6,4 @@ public interface EnergyEmissionFactorService {
 
     void save(EnergyDTO energyDTO);
 
-    double calculateEmissionFactor(EnergyDTO energyDTO);
-
 }

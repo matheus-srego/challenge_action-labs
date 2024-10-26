@@ -1,6 +1,5 @@
 package br.com.actionlabs.carboncalc.service.impls;
 
-import br.com.actionlabs.carboncalc.dto.CarbonCalculationResultDTO;
 import br.com.actionlabs.carboncalc.dto.UpdateCalcInfoRequestDTO;
 import br.com.actionlabs.carboncalc.mapper.CarbonCalculationInfoMapper;
 import br.com.actionlabs.carboncalc.model.CarbonCalculationInfo;

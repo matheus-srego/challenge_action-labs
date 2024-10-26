@@ -24,13 +24,4 @@ public class TransportationEmissionFactorServiceImpl implements TransportationEm
         transportationEmissionFactorRepository.saveAll(transportationEmissionFactor);
     }
 
-    @Override
-    public double calculateEmissionFactor(List<TransportationDTO> transportationDTO) {
-        return transportationDTO.stream()
-                .mapToDouble(transportation -> {
-                    TransportationEmissionFactor factor = transportationEmissionFactorRepository.findByTransportationType(transportation.getType());
-                    return transportation.getMonthlyDistance() * factor.getFactor();
-                }).sum();
-    }
-
 }

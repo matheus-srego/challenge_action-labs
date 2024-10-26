@@ -22,14 +22,4 @@ public class SolidWasteEmissionFactorServiceImpl implements SolidWasteEmissionFa
         solidWasteEmissionFactorRepository.save(solidWasteEmissionFactor);
     }
 
-    @Override
-    public double calculateEmissionFactor(SolidWasteDTO solidWasteDTO) {
-        final SolidWasteEmissionFactor solidWasteEmissionFactor = solidWasteEmissionFactorRepository.findByUf(solidWasteDTO.getUf());
-
-        final double recyclableEmission = solidWasteDTO.getRecyclableFactor() * solidWasteEmissionFactor.getRecyclableFactor();
-        final double nonRecyclableEmission = solidWasteDTO.getNonRecyclableFactor() * solidWasteEmissionFactor.getNonRecyclableFactor();
-
-        return recyclableEmission + nonRecyclableEmission;
-    }
-
 }
