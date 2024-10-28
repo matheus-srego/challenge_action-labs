@@ -22,4 +22,13 @@ public class SolidWasteEmissionFactorServiceImpl implements SolidWasteEmissionFa
         solidWasteEmissionFactorRepository.save(solidWasteEmissionFactor);
     }
 
+    @Override
+    public double calculate(String uf, int solidWasteTotal, double recyclePercentage) {
+        final SolidWasteEmissionFactor wasteFactor = solidWasteEmissionFactorRepository.findByUf(uf);
+        final double emissionFactor = (wasteFactor.getRecyclableFactor() * recyclePercentage) +
+                                      (wasteFactor.getNonRecyclableFactor() * (1 - recyclePercentage));
+        
+        return solidWasteTotal * emissionFactor;
+    }
+
 }

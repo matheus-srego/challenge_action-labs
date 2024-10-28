@@ -6,4 +6,6 @@ public interface SolidWasteEmissionFactorService {
 
     void save(SolidWasteDTO solidWasteDTO);
 
+    double calculate(String uf, int solidWasteTotal, double recyclePercentage);
+
 }
