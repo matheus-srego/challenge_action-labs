@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TransportationEmissionFactorRepository extends MongoRepository<TransportationEmissionFactor, TransportationType> {
 
+    TransportationEmissionFactor findByTransportationType(TransportationType transportationType);
+
 }
