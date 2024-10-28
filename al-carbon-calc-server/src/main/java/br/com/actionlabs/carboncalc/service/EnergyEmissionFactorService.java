@@ -6,4 +6,6 @@ public interface EnergyEmissionFactorService {
 
     void save(EnergyDTO energyDTO);
 
+    double calculate(String uf, int energyConsumption);
+
 }

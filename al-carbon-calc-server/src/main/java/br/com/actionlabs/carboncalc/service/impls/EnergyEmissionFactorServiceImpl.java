@@ -22,4 +22,10 @@ public class EnergyEmissionFactorServiceImpl implements EnergyEmissionFactorServ
         energyEmissionFactorRepository.save(energyEmissionFactor);
     }
 
+    @Override
+    public double calculate(String uf, int energyConsumption) {
+        final EnergyEmissionFactor energyFactor = energyEmissionFactorRepository.findByUf(uf);
+        return energyConsumption * energyFactor.getFactor();
+    }
+
 }
