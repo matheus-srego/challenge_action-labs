@@ -20,6 +20,12 @@
 
 <div align="center">
 
+**Challenge repository:** [action-labs-br/al-carbon-calc-server](https://github.com/action-labs-br/al-carbon-calc-server)
+
+</div>
+
+<div align="center">
+
 [➜ Leia-me em Português](tools/readme/README.pt-BR.md)
 
 </div>
