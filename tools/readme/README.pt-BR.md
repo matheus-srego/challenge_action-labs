@@ -53,190 +53,9 @@
 .
 ├── LICENSE
 ├── README.md
-├── al-carbon-calc-server
-│   ├── build
-│   │   ├── classes
-│   │   │   └── java
-│   │   │       ├── main
-│   │   │       │   └── br
-│   │   │       │       └── com
-│   │   │       │           └── actionlabs
-│   │   │       │               └── carboncalc
-│   │   │       │                   ├── CarbonCalculatorApplication.class
-│   │   │       │                   ├── annotation
-│   │   │       │                   │   ├── UniqueEmail.class
-│   │   │       │                   │   └── UniquePhoneNumber.class
-│   │   │       │                   ├── config
-│   │   │       │                   │   ├── AppConfig.class
-│   │   │       │                   │   └── OpenApiSwaggerConfig.class
-│   │   │       │                   ├── dto
-│   │   │       │                   │   ├── CarbonCalculationResultDTO.class
-│   │   │       │                   │   ├── EnergyDTO.class
-│   │   │       │                   │   ├── ServerStatusDTO.class
-│   │   │       │                   │   ├── SolidWasteDTO.class
-│   │   │       │                   │   ├── StartCalcRequestDTO.class
-│   │   │       │                   │   ├── StartCalcResponseDTO.class
-│   │   │       │                   │   ├── TransportationDTO.class
-│   │   │       │                   │   ├── UpdateCalcInfoRequestDTO.class
-│   │   │       │                   │   ├── UpdateCalcInfoResponseDTO.class
-│   │   │       │                   │   └── exception
-│   │   │       │                   │       ├── ErrorResponseDTO.class
-│   │   │       │                   │       ├── FieldErrorsResponseDTO$FieldError.class
-│   │   │       │                   │       └── FieldErrorsResponseDTO.class
-│   │   │       │                   ├── enums
-│   │   │       │                   │   └── TransportationType.class
-│   │   │       │                   ├── exception
-│   │   │       │                   │   └── GlobalExceptionHandler.class
-│   │   │       │                   ├── mapper
-│   │   │       │                   │   ├── CarbonCalculationInfoMapper.class
-│   │   │       │                   │   ├── CarbonCalculationInfoMapperImpl.class
-│   │   │       │                   │   ├── CarbonCalculationResultMapper.class
-│   │   │       │                   │   ├── CarbonCalculationResultMapperImpl.class
-│   │   │       │                   │   ├── EnergyEmissionFactorMapper.class
-│   │   │       │                   │   ├── EnergyEmissionFactorMapperImpl.class
-│   │   │       │                   │   ├── SolidWasteEmissionFactorMapper.class
-│   │   │       │                   │   ├── SolidWasteEmissionFactorMapperImpl.class
-│   │   │       │                   │   ├── TransportationEmissionFactorMapper.class
-│   │   │       │                   │   ├── TransportationEmissionFactorMapperImpl.class
-│   │   │       │                   │   ├── UserMapper.class
-│   │   │       │                   │   └── UserMapperImpl.class
-│   │   │       │                   ├── model
-│   │   │       │                   │   ├── CarbonCalculationInfo.class
-│   │   │       │                   │   ├── EnergyEmissionFactor.class
-│   │   │       │                   │   ├── SolidWasteEmissionFactor.class
-│   │   │       │                   │   ├── TransportationEmissionFactor.class
-│   │   │       │                   │   └── UserEmissionFactor.class
-│   │   │       │                   ├── repository
-│   │   │       │                   │   ├── CarbonCalculationInfoRepository.class
-│   │   │       │                   │   ├── EnergyEmissionFactorRepository.class
-│   │   │       │                   │   ├── SolidWasteEmissionFactorRepository.class
-│   │   │       │                   │   ├── TransportationEmissionFactorRepository.class
-│   │   │       │                   │   └── UserEmissionFactorRepository.class
-│   │   │       │                   ├── rest
-│   │   │       │                   │   ├── OpenRestController.class
-│   │   │       │                   │   └── StatusRestController.class
-│   │   │       │                   ├── service
-│   │   │       │                   │   ├── CarbonCalculationInfoService.class
-│   │   │       │                   │   ├── CarbonCalculationProcessManager.class
-│   │   │       │                   │   ├── EnergyEmissionFactorService.class
-│   │   │       │                   │   ├── SolidWasteEmissionFactorService.class
-│   │   │       │                   │   ├── TransportationEmissionFactorService.class
-│   │   │       │                   │   ├── UserEmissionFactorService.class
-│   │   │       │                   │   └── impls
-│   │   │       │                   │       ├── CarbonCalculationInfoServiceImpl.class
-│   │   │       │                   │       ├── CarbonCalculationProcessManagerImpl.class
-│   │   │       │                   │       ├── EnergyEmissionFactorServiceImpl.class
-│   │   │       │                   │       ├── SolidWasteEmissionFactorServiceImpl.class
-│   │   │       │                   │       ├── TransportationEmissionFactorServiceImpl.class
-│   │   │       │                   │       └── UserEmissionFactorServiceImpl.class
-│   │   │       │                   ├── utils
-│   │   │       │                   │   └── CONSTANTS.class
-│   │   │       │                   └── validator
-│   │   │       │                       ├── UniqueEmailValidator.class
-│   │   │       │                       └── UniquePhoneNumberValidator.class
-│   │   │       └── test
-│   │   │           └── br
-│   │   │               └── com
-│   │   │                   └── actionlabs
-│   │   │                       └── carboncalc
-│   │   │                           └── CarbonCalculatorApplicationTests.class
-│   │   ├── generated
-│   │   │   └── sources
-│   │   │       ├── annotationProcessor
-│   │   │       │   └── java
-│   │   │       │       ├── main
-│   │   │       │       │   └── br
-│   │   │       │       │       └── com
-│   │   │       │       │           └── actionlabs
-│   │   │       │       │               └── carboncalc
-│   │   │       │       │                   └── mapper
-│   │   │       │       │                       ├── CarbonCalculationInfoMapperImpl.java
-│   │   │       │       │                       ├── CarbonCalculationResultMapperImpl.java
-│   │   │       │       │                       ├── EnergyEmissionFactorMapperImpl.java
-│   │   │       │       │                       ├── SolidWasteEmissionFactorMapperImpl.java
-│   │   │       │       │                       ├── TransportationEmissionFactorMapperImpl.java
-│   │   │       │       │                       └── UserMapperImpl.java
-│   │   │       │       └── test
-│   │   │       └── headers
-│   │   │           └── java
-│   │   │               ├── main
-│   │   │               └── test
-│   │   ├── libs
-│   │   │   ├── carboncalc-0.0.1-SNAPSHOT-plain.jar
-│   │   │   └── carboncalc-0.0.1-SNAPSHOT.jar
-│   │   ├── reports
-│   │   │   └── tests
-│   │   │       └── test
-│   │   │           ├── classes
-│   │   │           │   └── br.com.actionlabs.carboncalc.CarbonCalculatorApplicationTests.html
-│   │   │           ├── css
-│   │   │           │   ├── base-style.css
-│   │   │           │   └── style.css
-│   │   │           ├── index.html
-│   │   │           ├── js
-│   │   │           │   └── report.js
-│   │   │           └── packages
-│   │   │               └── br.com.actionlabs.carboncalc.html
-│   │   ├── resolvedMainClassName
-│   │   ├── resources
-│   │   │   └── main
-│   │   │       └── application.yml
-│   │   ├── test-results
-│   │   │   └── test
-│   │   │       ├── TEST-br.com.actionlabs.carboncalc.CarbonCalculatorApplicationTests.xml
-│   │   │       └── binary
-│   │   │           ├── output.bin
-│   │   │           ├── output.bin.idx
-│   │   │           └── results.bin
-│   │   └── tmp
-│   │       ├── assemble
-│   │       ├── bootBuildImage
-│   │       ├── bootJar
-│   │       │   └── MANIFEST.MF
-│   │       ├── bootRun
-│   │       ├── bootTestRun
-│   │       ├── build
-│   │       ├── buildDependents
-│   │       ├── buildEnvironment
-│   │       ├── buildNeeded
-│   │       ├── check
-│   │       ├── classes
-│   │       ├── clean
-│   │       ├── compileJava
-│   │       │   └── previous-compilation-data.bin
-│   │       ├── compileTestJava
-│   │       │   └── previous-compilation-data.bin
-│   │       ├── components
-│   │       ├── dependencies
-│   │       ├── dependencyInsight
-│   │       ├── dependencyManagement
-│   │       ├── dependentComponents
-│   │       ├── help
-│   │       ├── init
-│   │       ├── jar
-│   │       │   └── MANIFEST.MF
-│   │       ├── javaToolchains
-│   │       ├── javadoc
-│   │       ├── model
-│   │       ├── outgoingVariants
-│   │       ├── prepareKotlinBuildScriptModel
-│   │       ├── processResources
-│   │       ├── processTestResources
-│   │       ├── projects
-│   │       ├── properties
-│   │       ├── resolvableConfigurations
-│   │       ├── resolveMainClassName
-│   │       ├── resolveTestMainClassName
-│   │       ├── runSingle
-│   │       ├── tasks
-│   │       ├── test
-│   │       ├── testClasses
-│   │       ├── updateDaemonJvm
-│   │       └── wrapper
 │   ├── build.gradle
 │   ├── gradle
 │   │   └── wrapper
-│   │       ├── gradle-wrapper.jar
 │   │       └── gradle-wrapper.properties
 │   ├── gradlew
 │   ├── gradlew.bat
@@ -324,10 +143,11 @@
 │                               └── CarbonCalculatorApplicationTests.java
 ├── docker-compose.yml
 └── tools
-    ├── README.pt-br.md
-    └── db
-        ├── data
-        └── init-mongo.js
+    ├── db
+    │   ├── data
+    │   └── init-mongo.js
+    └── readme
+        └── README.pt-BR.md
 ```
 </details>
 
