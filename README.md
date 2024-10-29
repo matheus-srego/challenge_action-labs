@@ -1,4 +1,4 @@
-# challenge_action-labs
+# challenge_actionlabs
 
 </br>
 
