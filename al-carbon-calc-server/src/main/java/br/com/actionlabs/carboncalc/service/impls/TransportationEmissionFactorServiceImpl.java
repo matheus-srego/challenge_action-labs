@@ -28,7 +28,7 @@ public class TransportationEmissionFactorServiceImpl implements TransportationEm
     public double calculate(List<TransportationDTO> transportationDTO) {
         double totalEmission = 0;
         for (TransportationDTO transport : transportationDTO) {
-            TransportationEmissionFactor transportationFactor = transportationEmissionFactorRepository.findByTransportationType(transport.getType());
+            TransportationEmissionFactor transportationFactor = transportationEmissionFactorRepository.findByType(transport.getType());
             totalEmission += transport.getMonthlyDistance() * transportationFactor.getFactor();
         }
 

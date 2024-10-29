@@ -33,7 +33,7 @@ public class OpenRestController {
 
   @GetMapping("result/{id}")
   public ResponseEntity<CarbonCalculationResultDTO> getResult(@PathVariable String id) {
-    throw new RuntimeException("Not implemented");
+    return ResponseEntity.ok(this.processManager.calculateTotalFootPrint(id));
   }
 
 }

@@ -6,6 +6,7 @@ import br.com.actionlabs.carboncalc.model.CarbonCalculationInfo;
 import br.com.actionlabs.carboncalc.repository.CarbonCalculationInfoRepository;
 import br.com.actionlabs.carboncalc.service.CarbonCalculationInfoService;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,11 @@ public class CarbonCalculationInfoServiceImpl implements CarbonCalculationInfoSe
     public void save(UpdateCalcInfoRequestDTO updateCalcInfoRequestDTO) {
         final CarbonCalculationInfo carbonCalculationInfo = calculationInfoMapper.toModel(updateCalcInfoRequestDTO);
         calculationInfoRepository.save(carbonCalculationInfo);
+    }
+
+    @Override
+    public CarbonCalculationInfo getCarbonById(String id) {
+        return calculationInfoRepository.findById(id).orElseThrow(() -> new OpenApiResourceNotFoundException("Cálculo não encontrado para o ID: " + id));
     }
 
 }

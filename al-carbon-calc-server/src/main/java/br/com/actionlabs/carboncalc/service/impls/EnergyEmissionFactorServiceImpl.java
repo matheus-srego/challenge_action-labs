@@ -6,6 +6,7 @@ import br.com.actionlabs.carboncalc.model.EnergyEmissionFactor;
 import br.com.actionlabs.carboncalc.repository.EnergyEmissionFactorRepository;
 import br.com.actionlabs.carboncalc.service.EnergyEmissionFactorService;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,8 +24,8 @@ public class EnergyEmissionFactorServiceImpl implements EnergyEmissionFactorServ
     }
 
     @Override
-    public double calculate(String uf, int energyConsumption) {
-        final EnergyEmissionFactor energyFactor = energyEmissionFactorRepository.findByUf(uf);
+    public double calculate(String ufId, int energyConsumption) {
+        final EnergyEmissionFactor energyFactor = energyEmissionFactorRepository.findById(ufId).orElseThrow(() -> new OpenApiResourceNotFoundException("Dados de Energia não encontrado para o ID: " + ufId));
         return energyConsumption * energyFactor.getFactor();
     }
 
