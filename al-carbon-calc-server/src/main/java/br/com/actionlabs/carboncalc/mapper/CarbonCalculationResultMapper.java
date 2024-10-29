@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CarbonCalculationResultMapper {
 
-    default CarbonCalculationResultDTO toDTO(double energy, double transportation, double solidWaste) {
+    default CarbonCalculationResultDTO toResultDTO(double energy, double transportation, double solidWaste) {
         final CarbonCalculationResultDTO calculationResultDTO = new CarbonCalculationResultDTO();
         calculationResultDTO.setEnergy(energy);
         calculationResultDTO.setSolidWaste(transportation);

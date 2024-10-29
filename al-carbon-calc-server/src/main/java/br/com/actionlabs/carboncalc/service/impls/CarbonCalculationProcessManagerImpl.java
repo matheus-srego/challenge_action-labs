@@ -40,7 +40,6 @@ public class CarbonCalculationProcessManagerImpl implements CarbonCalculationPro
         solidWasteEmissionFactorService.save(solidWasteDTO);
 
         transportationEmissionFactorService.save(updateCalcInfoRequestDTO.getTransportation());
-
         carbonCalculationInfoService.save(updateCalcInfoRequestDTO);
 
         final UpdateCalcInfoResponseDTO updateCalcInfoResponseDTO = new UpdateCalcInfoResponseDTO();
@@ -58,7 +57,7 @@ public class CarbonCalculationProcessManagerImpl implements CarbonCalculationPro
         final double solidWasteEmission = solidWasteEmissionFactorService.calculate(uf, carbonCalculationInfo.getSolidWasteTotal(), carbonCalculationInfo.getRecyclePercentage());
         final double transportationEmission = transportationEmissionFactorService.calculate(carbonCalculationInfo.getTransportation());
 
-        return carbonCalculationResultMapper.toDTO(energyEmission, solidWasteEmission, transportationEmission);
+        return carbonCalculationResultMapper.toResultDTO(energyEmission, solidWasteEmission, transportationEmission);
     }
 
 }
