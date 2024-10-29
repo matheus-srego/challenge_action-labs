@@ -2,6 +2,7 @@ package br.com.actionlabs.carboncalc.exception;
 
 import br.com.actionlabs.carboncalc.dto.exception.ErrorResponseDTO;
 import br.com.actionlabs.carboncalc.dto.exception.FieldErrorsResponseDTO;
+import br.com.actionlabs.carboncalc.utils.CONSTANTS;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ import java.util.List;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<FieldErrorsResponseDTO> handleValidationExceptions(MethodArgumentNotValidException exception) {
+    public ResponseEntity<FieldErrorsResponseDTO> handleValidationExceptions(MethodArgumentNotValidException exception, HttpServletRequest request) {
         final List<FieldErrorsResponseDTO.FieldError> errors = new ArrayList<>();
 
         exception.getBindingResult().getFieldErrors().forEach(error -> {
@@ -27,8 +28,9 @@ public class GlobalExceptionHandler {
 
         final FieldErrorsResponseDTO errorResponse = new FieldErrorsResponseDTO();
         errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponse.setError("Validation Error");
-        errorResponse.setMessage("One or more fields have an error");
+        errorResponse.setError(HttpStatus.BAD_REQUEST.getReasonPhrase());
+        errorResponse.setMessage(CONSTANTS.FIELD_ERROR);
+        errorResponse.setPath(request.getRequestURI());
         errorResponse.setTimestamp(LocalDateTime.now());
         errorResponse.setErrors(errors);
 

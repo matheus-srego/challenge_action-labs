@@ -14,6 +14,8 @@ public class FieldErrorsResponseDTO {
 
     private String message;
 
+    private String path;
+
     private LocalDateTime timestamp;
 
     private List<FieldError> errors;
