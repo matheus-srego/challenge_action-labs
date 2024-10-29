@@ -6,7 +6,9 @@ import br.com.actionlabs.carboncalc.mapper.UserMapper;
 import br.com.actionlabs.carboncalc.model.UserEmissionFactor;
 import br.com.actionlabs.carboncalc.repository.UserEmissionFactorRepository;
 import br.com.actionlabs.carboncalc.service.UserEmissionFactorService;
+import br.com.actionlabs.carboncalc.utils.CONSTANTS;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
@@ -38,9 +40,13 @@ public class UserEmissionFactorServiceImpl implements UserEmissionFactorService 
         query.addCriteria(Criteria.where("_id").is(id));
         query.fields().include("uf").exclude("_id");
 
-        Document result = this.mongoTemplate.findOne(query, Document.class, "userEmissionFactor");
+        final Document result = this.mongoTemplate.findOne(query, Document.class, "userEmissionFactor");
 
-        return result != null ? result.getString("uf") : null;
+        if (result == null) {
+            throw new OpenApiResourceNotFoundException(CONSTANTS.UF_NOT_FOUND + id);
+        }
+
+        return result.getString("uf");
     }
 
 }

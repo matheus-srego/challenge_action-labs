@@ -26,4 +26,6 @@ public class CONSTANTS {
 
     public static final String ENERGY_EMISSION_NOT_FOUND = "Energy emission not found for ID: ";
 
+    public static final String UF_NOT_FOUND = "UF not found for ID: ";
+
 }
