@@ -34,3 +34,6 @@ al-carbon-calc-server/build/
 
 # Intllij files
 al-carbon-calc-server/.idea/
+
+# Database files
+tools/db/data/*
