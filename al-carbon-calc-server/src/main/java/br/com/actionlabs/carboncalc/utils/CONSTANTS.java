@@ -12,4 +12,8 @@ public class CONSTANTS {
 
     public static final String EMAIL_INVALID = "Invalid e-mail format.";
 
+    public static final String EMAIL_EXIST = "E-mail already exist.";
+
+    public static final String PHONE_NUMBER_EXIST = "Phone number already exist.";
+
 }
