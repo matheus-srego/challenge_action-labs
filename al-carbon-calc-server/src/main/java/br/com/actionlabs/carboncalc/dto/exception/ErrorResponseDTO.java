@@ -1,8 +1,7 @@
-package br.com.actionlabs.carboncalc.dto;
+package br.com.actionlabs.carboncalc.dto.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor

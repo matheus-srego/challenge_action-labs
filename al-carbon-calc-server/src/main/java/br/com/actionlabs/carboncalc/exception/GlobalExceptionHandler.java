@@ -1,16 +1,14 @@
 package br.com.actionlabs.carboncalc.exception;
 
-import br.com.actionlabs.carboncalc.dto.ErrorResponseDTO;
-import br.com.actionlabs.carboncalc.dto.FieldErrorsResponseDTO;
+import br.com.actionlabs.carboncalc.dto.exception.ErrorResponseDTO;
+import br.com.actionlabs.carboncalc.dto.exception.FieldErrorsResponseDTO;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.ConstraintViolationException;
 import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

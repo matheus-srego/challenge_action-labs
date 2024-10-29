@@ -1,4 +1,4 @@
-package br.com.actionlabs.carboncalc.dto;
+package br.com.actionlabs.carboncalc.dto.exception;
 
 import lombok.Data;
 
