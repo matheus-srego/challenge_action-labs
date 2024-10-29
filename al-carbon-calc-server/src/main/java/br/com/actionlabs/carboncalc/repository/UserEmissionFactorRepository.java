@@ -9,4 +9,8 @@ import java.util.Optional;
 @Repository
 public interface UserEmissionFactorRepository extends MongoRepository<UserEmissionFactor, String> {
 
+    Boolean existsByEmail(String email);
+
+    Boolean existsByPhoneNumber(String phoneNumber);
+
 }
