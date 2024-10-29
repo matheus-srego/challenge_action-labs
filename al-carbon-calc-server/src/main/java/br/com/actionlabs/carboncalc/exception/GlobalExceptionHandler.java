@@ -1,11 +1,16 @@
 package br.com.actionlabs.carboncalc.exception;
 
+import br.com.actionlabs.carboncalc.dto.ErrorResponseDTO;
 import br.com.actionlabs.carboncalc.dto.FieldErrorsResponseDTO;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
+import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -30,6 +35,18 @@ public class GlobalExceptionHandler {
         errorResponse.setErrors(errors);
 
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(OpenApiResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponseDTO> handleOpenApiResourceNotFoundException(OpenApiResourceNotFoundException exception, HttpServletRequest request) {
+        final ErrorResponseDTO errorResponse = new ErrorResponseDTO(
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.getReasonPhrase(),
+                exception.getMessage(),
+                request.getRequestURI()
+        );
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
 }
