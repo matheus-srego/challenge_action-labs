@@ -1,6 +1,7 @@
 package br.com.actionlabs.carboncalc.service.impls;
 
 import br.com.actionlabs.carboncalc.dto.*;
+import br.com.actionlabs.carboncalc.mapper.CarbonCalculationResultMapper;
 import br.com.actionlabs.carboncalc.mapper.EnergyEmissionFactorMapper;
 import br.com.actionlabs.carboncalc.mapper.SolidWasteEmissionFactorMapper;
 import br.com.actionlabs.carboncalc.model.CarbonCalculationInfo;
@@ -25,6 +26,8 @@ public class CarbonCalculationProcessManagerImpl implements CarbonCalculationPro
     private final EnergyEmissionFactorMapper energyEmissionFactorMapper;
 
     private final SolidWasteEmissionFactorMapper solidWasteEmissionFactorMapper;
+
+    private final CarbonCalculationResultMapper carbonCalculationResultMapper;
 
     @Override
     public UpdateCalcInfoResponseDTO saveCarbonInfo(UpdateCalcInfoRequestDTO updateCalcInfoRequestDTO) {
@@ -55,13 +58,7 @@ public class CarbonCalculationProcessManagerImpl implements CarbonCalculationPro
         final double solidWasteEmission = solidWasteEmissionFactorService.calculate(uf, carbonCalculationInfo.getSolidWasteTotal(), carbonCalculationInfo.getRecyclePercentage());
         final double transportationEmission = transportationEmissionFactorService.calculate(carbonCalculationInfo.getTransportation());
 
-        final CarbonCalculationResultDTO calculationResultDTO = new CarbonCalculationResultDTO();
-        calculationResultDTO.setEnergy(energyEmission);
-        calculationResultDTO.setSolidWaste(solidWasteEmission);
-        calculationResultDTO.setTransportation(transportationEmission);
-        calculationResultDTO.setTotal(energyEmission + solidWasteEmission + transportationEmission);
-
-        return calculationResultDTO;
+        return carbonCalculationResultMapper.toDTO(energyEmission, solidWasteEmission, transportationEmission);
     }
 
 }
