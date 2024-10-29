@@ -14,6 +14,6 @@ public class UpdateCalcInfoRequestDTO {
   private List<TransportationDTO> transportation;
   private int solidWasteTotal;
   @DecimalMin(value = "0.0", message = CONSTANTS.PERCENTAGE_DECIMAL_MIN)
-  @DecimalMax(value = "1.0", message = CONSTANTS.PERCENTAGA_DECIMAL_MAX)
+  @DecimalMax(value = "1.0", message = CONSTANTS.PERCENTAGE_DECIMAL_MAX)
   private double recyclePercentage;
 }

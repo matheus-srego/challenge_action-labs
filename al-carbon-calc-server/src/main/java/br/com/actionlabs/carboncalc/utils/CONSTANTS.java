@@ -18,6 +18,6 @@ public class CONSTANTS {
 
     public static final String PERCENTAGE_DECIMAL_MIN = "The recycle percentage field must be at least '0.0'.";
 
-    public static final String PERCENTAGA_DECIMAL_MAX = "The recycle percentage field must not be more than '1.0'.";
-    
+    public static final String PERCENTAGE_DECIMAL_MAX = "The recycle percentage field must not be more than '1.0'.";
+
 }
