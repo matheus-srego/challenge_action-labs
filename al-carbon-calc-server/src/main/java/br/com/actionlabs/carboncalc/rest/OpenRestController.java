@@ -27,7 +27,7 @@ public class OpenRestController {
 
   @PutMapping("info")
   public ResponseEntity<UpdateCalcInfoResponseDTO> updateInfo(
-      @RequestBody UpdateCalcInfoRequestDTO request) {
+      @Valid @RequestBody UpdateCalcInfoRequestDTO request) {
     return ResponseEntity.ok(this.processManager.saveCarbonInfo(request));
   }
 
